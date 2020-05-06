@@ -1,5 +1,3 @@
-server:
-  port: 9183
 spring:
   servlet:
     multipart:
@@ -71,12 +69,8 @@ security:
 # mybatis配置
 mybatis:
   type-aliases-package: com.github.tangyi.user.api.module
-  configuration:
-    # 驼峰转换
-    map-underscore-to-camel-case: true
-    # 延迟加载
-    lazy-loading-enabled: true
   mapper-locations: classpath:mapper/*.xml
+  config-location: classpath:mybatis-config.xml
 pagehelper:
   helperDialect: mysql
   reasonable: true
@@ -181,5 +175,3 @@ ignore:
 cluster:
   workId: ${CLUSTER_WORKID:1}
   dataCenterId: ${CLUSTER_DATA_CENTER_ID:1}
-
-

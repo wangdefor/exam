@@ -1,5 +1,7 @@
 package com.github.tangyi.common.core.exceptions;
 
+import java.util.function.Supplier;
+
 /**
  *
  * 服务异常
@@ -17,4 +19,13 @@ public class ServiceException extends CommonException {
 	public ServiceException(String msg) {
 		super(msg);
 	}
+
+	public static Exception getException(){
+		return new ServiceException();
+	}
+
+	 public static Supplier<ServiceException> exception(String message) {
+		return () -> new ServiceException(message);
+	}
+
 }

@@ -36,4 +36,6 @@ public class ValidateCodeConfig {
         defaultKaptcha.setConfig(config);
         return defaultKaptcha;
     }
+
+
 }

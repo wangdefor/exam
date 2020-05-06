@@ -24,13 +24,22 @@ spring:
           metadata:
             tags:
               environment: prd
-  # 使用consul作为注册中心
-  cloud:
-    consul:
-      host: ${CONSUL_HOST:localhost}
-      port: ${CONSUL_PORT:8500}
+  # 使用consul作为注册中心  目前有废弃的想法
+#  cloud:
+#    consul:
+#      host: ${CONSUL_HOST:localhost}
+#      port: ${CONSUL_PORT:8500}
   rabbitmq:
     host: ${RABBIT_HOST:localhost}
     port: ${RABBIT_PORT:5672}
     username: ${RABBITMQ_DEFAULT_USER:guest}
     password: ${RABBITMQ_DEFAULT_PASS:guest}
+# 使用eureka 进行服务注册 eureka 已经布置在我的远程机器上 ， 如果想要自己布置， 直接 clone 我的项目 项目地址  https://github.com/wangdefor/SpringBootTest.git 里面有eureka 例子
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+    prefer-ip-address: true
+    instance-id: localhost:${server.port}
+  client:
+    service-url:
+      defaultZone: http://34.92.239.179:5060/eureka/

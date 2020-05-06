@@ -151,7 +151,7 @@ public class UserService extends CrudService<UserMapper, User> {
         userAuths.setTenantCode(tenantCode);
         userAuths = userAuthsService.getByIdentifier(userAuths);
         if (userAuths == null)
-            throw new CommonException("Identifier " + identifier + "does not exist");
+            throw new CommonException("Identifier " + identifier + " does not exist");
         // 根据用户id查询用户详细信息
         User user = this.get(userAuths.getUserId());
         if (user == null)

@@ -28,3 +28,4 @@ encrypt:
     location: classpath:/jwt.jks
     alias: jwt
     password: abc123
+

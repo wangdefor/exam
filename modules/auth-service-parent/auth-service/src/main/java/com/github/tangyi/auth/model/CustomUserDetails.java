@@ -1,8 +1,8 @@
 package com.github.tangyi.auth.model;
 
 import com.github.tangyi.common.basic.enums.LoginTypeEnum;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import com.github.tangyi.common.basic.vo.UserVo;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
@@ -14,8 +14,9 @@ import java.util.Collection;
  * @author tangyi
  * @date 2019/5/28 21:13
  */
-@Data
 @EqualsAndHashCode(callSuper = false)
+@Getter
+@Setter
 public class CustomUserDetails extends User {
 
     private static final long serialVersionUID = 1L;
