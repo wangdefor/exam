@@ -1,6 +1,3 @@
-server:
-  port: 9186
-
 turbine:
   appConfig: consul,auth-service,exam-service,user-service,gateway-service,msc-service
   aggregator:

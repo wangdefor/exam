@@ -1,15 +1,17 @@
 # bootstrap.yml文件中的内容不能放到application.yml中，否则config部分无法被加载
 # 因为config部分的配置先于application.yml被加载，而bootstrap.yml中的配置会先于application.yml加载
+server:
+  port: 9182
 spring:
   application:
     name: auth-service
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:native}
   cloud:
-    # 使用consul作为注册中心
-    consul:
-      host: ${CONSUL_HOST:localhost}
-      port: ${CONSUL_PORT:8500}
+#    # 使用consul作为注册中心
+#    consul:
+#      host: ${CONSUL_HOST:localhost}
+#      port: ${CONSUL_PORT:8500}
     # 使用配置服务中心的配置信息
     config:
       fail-fast: true # 在某些情况下，如果服务无法连接到配置服务器，则可能希望启动服务失败,客户端将以异常停止
@@ -29,3 +31,12 @@ encrypt:
     alias: jwt
     password: abc123
 
+# eureka
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+    prefer-ip-address: true
+    instance-id: localhost:${server.port}
+  client:
+    service-url:
+      defaultZone: http://34.92.239.179:5060/eureka/

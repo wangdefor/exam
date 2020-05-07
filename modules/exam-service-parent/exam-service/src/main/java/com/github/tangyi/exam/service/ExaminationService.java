@@ -14,6 +14,7 @@ import com.github.tangyi.exam.api.module.Examination;
 import com.github.tangyi.exam.api.module.ExaminationSubject;
 import com.github.tangyi.exam.enums.ExaminationTypeEnum;
 import com.github.tangyi.exam.mapper.ExaminationMapper;
+import com.github.tangyi.exam.utils.QRCodeUtils;
 import com.github.tangyi.user.api.constant.AttachmentConstant;
 import com.github.tangyi.user.api.module.Attachment;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -323,7 +325,7 @@ public class ExaminationService extends CrudService<ExaminationMapper, Examinati
 		}
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		String url = sysProperties.getQrCodeUrl() + "?id=" + examination.getId();
-		////QRCodeUtils.encoderQRCode(url, outputStream, "png");
+		QRCodeUtils.encoderQRCode(url, outputStream, "png");
 		log.info("Share examinationId: {}, url: {}", examinationId, url);
 		return outputStream.toByteArray();
 	}

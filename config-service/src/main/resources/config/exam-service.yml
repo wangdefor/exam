@@ -1,12 +1,10 @@
-server:
-  port: 9184
 spring:
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${DB_EXAM:exam}?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=CTT&characterEncoding=UTF-8
     username: ${MYSQL_USERNAME:root}
     password: ${MYSQL_PASSWORD:123456}
     type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   redis:
     host: ${REDIS_HOST:10.0.2.4}
     port: ${REDIS_PORT:6379}
@@ -153,12 +151,3 @@ cluster:
   workId: ${CLUSTER_WORKID:1}
   dataCenterId: ${CLUSTER_DATA_CENTER_ID:1}
 
-# eureka
-eureka:
-  instance:
-    hostname: demo
-    prefer-ip-address: true
-    instance-id: localhost:${server.port}
-  client:
-    service-url:
-      defaultZone: http://34.92.239.179:5060/eureka/
