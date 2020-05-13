@@ -8,7 +8,7 @@
         <artifactId>common</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>common-core</artifactId>
+    <artifactId>common-core</artifactId>hutool
     <name>${project.artifactId}</name>
     <description>公共核心依赖</description>
 

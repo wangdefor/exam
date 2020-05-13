@@ -370,7 +370,6 @@ public class UserService extends CrudService<UserMapper, User> {
      * @author tangyi
      * @date 2019/07/03 13:00:39
      */
-    @Cacheable(value = "user#" + CommonConstant.CACHE_EXPIRE, key = "#identifier")
     public UserVo findUserByIdentifier(Integer identityType, String identifier, String tenantCode) {
         UserAuths userAuths = new UserAuths();
         userAuths.setIdentifier(identifier);

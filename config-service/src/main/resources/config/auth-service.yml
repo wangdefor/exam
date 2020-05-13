@@ -131,11 +131,11 @@ wx:
   grantType: ${WX_GRANT_TYPE:authorization_code}
 
 # eureka
-eureka:
-  instance:
-    hostname: demo
-    prefer-ip-address: true
-    instance-id: localhost:${server.port}
-  client:
-    service-url:
-      defaultZone: http://34.92.239.179:5060/eureka/
+#eureka:
+#  instance:
+#    hostname: demo
+#    prefer-ip-address: true
+#    instance-id: localhost:${server.port}
+#  client:
+#    service-url:
+#      defaultZone: http://34.92.239.179:5060/eureka/

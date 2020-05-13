@@ -44,7 +44,6 @@ public class TenantService extends CrudService<TenantMapper, Tenant> {
      * @author tangyi
      * @date 2019/05/26 10:28
      */
-    @Cacheable(value = "tenant#" + CommonConstant.CACHE_EXPIRE, key = "#tenantCode")
     public Tenant getByTenantCode(String tenantCode) {
         return this.dao.getByTenantCode(tenantCode);
     }
